@@ -1,0 +1,62 @@
+!!! 5
+
+%html
+  %head
+    %title thumbtack caffeine-o-matic
+    %link{rel: 'stylesheet', href: '/stylesheets/slot.css'}
+  %body
+
+    %section.slot-machine
+
+      %h1 
+        %img{src: 'http://cdn-1.thumbtackstatic.com/media/logos/thumbtack_orange_182x29-2.png'}
+        %br/
+        win-caffeine-o-matic
+
+      .reels
+
+      .lever
+        .knob.play
+      
+      .prize
+        %h2
+          You won 
+          %span.prize-desc
+
+      .help
+        %h2 
+          Pull the lever to play!
+
+    %footer
+      %p 
+        See the code at 
+        %a{href: 'https://github.com/pigats/win-caffeine-o-matic'} https://github.com/pigats/win-caffeine-o-matic
+      %p
+        This is a code challenge I did for the awesome crew of
+        %a{href: 'http://www.thumbtack.com/'} thumbtack
+        &ndash; now get in touch at
+        %a{href: 'mailto:andreapigato@gmail.com'} andreapigato@gmail.com 
+        and hire me, guys! ;-)
+
+      %p DISCLAIMER: the Thumbtack name and logo are of property of Thumbtack Inc. This webpage is not associated with Thumbtack Inc.
+
+
+    %script{type: 'text/javascript', src: '/javascripts/jquery-1.10.2.min.js'}
+    %script{type: 'text/javascript', src: '/javascripts/slot.js' }
+    :javascript
+      
+      $(document).ready( function() {
+        slot = new window.Slot( $('.reels'), [
+                                  [{name: 'coffee maker', winning_index: 0 }, 
+                                  {name: 'teapot', winning_index: 1}, 
+                                  {name: 'espresso machine', winning_index: 2}],
+
+                                  [{name: 'coffee filter', winning_index: 0 }, 
+                                  {name: 'tea stainer', winning_index: 1}, 
+                                  {name: 'espresso tamper', winning_index: 2}],
+
+                                  [{name: 'coffee grounds', winning_index: 0 }, 
+                                  {name: 'loose tea', winning_index: 1},
+                                  {name: 'espresso beans', winning_index: 2}]
+                                ], ['a cup of coffee', 'a cup of tea', 'an espresso']);
+      })
